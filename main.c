@@ -25,6 +25,21 @@ void loop() {
     CircuitPlayground.setPixelColor(9,CircuitPlayground.colorWheel(85));
     delay(1000);
     CircuitPlayground.clearPixels();
+    
+    // Random Number Generator for Pattern Array
+    int pattern[10]; //Array of 10 random numbers between 1:4
+    int seed=0; //Seed number for random number generator
+    int i;
+    
+    seed = analogRead(12); //Taking noise from the unconnected pads to seed the random number generator
+    seed = analogRead(7);
+    seed = analogRead(9);
+    seed = analogRead(10);
+    
+    for (i = 0; i < 10; i++){
+     pattern[i] = random(1,4); //Fill pattern array with random numbers 1:4
+    }
+    
     while(1==1)
     {
       int input_count = 0;
