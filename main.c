@@ -73,7 +73,7 @@ void loop() {
       while((display_count < round_input) && round_input <= game_length) //Loop to display the pattern to the user
       {
         // Set Display Time Based on Game Length
-        display_time = min_display_time + (max_display_time - min_display_time)*((game_length - round_input)/(game_length - 1)); //Decrease display_time based on the round number
+        display_time = min_display_time + (max_display_time - min_display_time)*(((double)game_length - (double)round_input)/((double)game_length - 1.0)); //Decrease display_time based on the round number
         
         if(pattern[display_count] == 1) //Quadrant 1: Green
         {
