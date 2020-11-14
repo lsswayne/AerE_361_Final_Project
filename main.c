@@ -31,18 +31,32 @@ void loop() {
     CircuitPlayground.playTone(392, 100); //G4
     delay(500);
     CircuitPlayground.clearPixels();
-
+    
     //Defining Variables
       int input_count = 0;
       int display_count = 0;
       int round_input = 1;
       int time_to_check = 0;
-      int input_vect[10];
+      int input_vect[20];
       int end_game = 0;
       int win_condition = 0;
+      //Time Variables
+      int display_time = 500;  //Default display time is 500 milliseconds
+      int max_display_time = 500; //Maximum time the color of the pattern will be displayed.  Also is the length of the break afterwards
+      int min_display_time = 250; //Minimum time the color of the pattern will be displayed.  Also is the length of the break afterwards
+    
+    //Set Difficulty
+      int game_length = 10; //defult game length is 10 rounds
+    //Loop for determining difficulty level
+      // game_length = game_length + button_number;
+      // Example:  button_number = 0
+      //           game_length = 10
+      // Example:  button_number = 5
+      //           game_length = 15
+      // Max game_length = 20
 
     // Random Number Generator for Pattern Array
-    int pattern[10]; //Array of 10 random numbers between 1:4
+    int pattern[20]; //Array of 20 random numbers between 1:4
 
     for (int i = 0; i < 10; i++){
       //pattern[i] = 1; //for testing purposes
@@ -56,43 +70,46 @@ void loop() {
       
       delay(1000);
       
-      while((display_count < round_input) && round_input < 10) //Loop to display the pattern to the user
+      while((display_count < round_input) && round_input <= game_length) //Loop to display the pattern to the user
       {
+        // Set Display Time Based on Game Length
+        display_time = max_display_time - (max_display_time - min_display_time)*((game_length - round_input)/(game_length - 1)); //Decrease display_time based on the round number
+        
         if(pattern[display_count] == 1) //Quadrant 1: Green
         {
           CircuitPlayground.setPixelColor(0,CircuitPlayground.colorWheel(85));
           CircuitPlayground.setPixelColor(1,CircuitPlayground.colorWheel(85));
           CircuitPlayground.setPixelColor(2,CircuitPlayground.colorWheel(85));
-          CircuitPlayground.playTone(196, 500); //G4
+          CircuitPlayground.playTone(196, display_time); //G4
           CircuitPlayground.clearPixels();
-          delay(500);
+          delay(display_time);
         }
         else if (pattern[display_count] == 2) //Quadrant 2: Yellow
         {
           CircuitPlayground.setPixelColor(2,255,255,0);
           CircuitPlayground.setPixelColor(3,255,255,0);
           CircuitPlayground.setPixelColor(4,255,255,0);
-          CircuitPlayground.playTone(277, 500); //C#4
+          CircuitPlayground.playTone(277, display_time); //C#4
           CircuitPlayground.clearPixels();
-          delay(500);
+          delay(display_time);
         }
         else if (pattern[display_count] == 3) //Quadrant 3: Blue
         {
           CircuitPlayground.setPixelColor(5,CircuitPlayground.colorWheel(170));
           CircuitPlayground.setPixelColor(6,CircuitPlayground.colorWheel(170));
           CircuitPlayground.setPixelColor(7,CircuitPlayground.colorWheel(170));
-          CircuitPlayground.playTone(330, 500); //E4
+          CircuitPlayground.playTone(330, display_time); //E4
           CircuitPlayground.clearPixels();
-          delay(500);
+          delay(display_time);
         }
         else if (pattern[display_count] == 4) //Quadrant 4: Red
         {
           CircuitPlayground.setPixelColor(7,CircuitPlayground.colorWheel(0));
           CircuitPlayground.setPixelColor(8,CircuitPlayground.colorWheel(0));
           CircuitPlayground.setPixelColor(9,CircuitPlayground.colorWheel(0));
-          CircuitPlayground.playTone(220, 500); //A3
+          CircuitPlayground.playTone(220, display_time); //A3
           CircuitPlayground.clearPixels();
-          delay(500);
+          delay(display_time);
         }
         ++display_count;
       }
