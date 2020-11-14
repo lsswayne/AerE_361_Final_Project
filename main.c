@@ -248,7 +248,7 @@ void loop() {
       //All inputs are correct: increase round
       round_input = round_input + 1;
       
-      if (round_input == 11) //User successfully passed 10 rounds, indicate win by setting win_condition to 1
+      if (round_input == game_length) //User successfully passed 10 rounds, indicate win by setting win_condition to 1
       {
         win_condition = 1;
       }
