@@ -46,14 +46,7 @@ void loop() {
       float min_display_time = 100; //Minimum time the color of the pattern will be displayed.  Also is the length of the break afterwards
     
     //Set Difficulty
-      int game_length = 5; //defult game length is 10 rounds
-    //Loop for determining difficulty level
-      // game_length = game_length + button_number;
-      // Example:  button_number = 0
-      //           game_length = 10
-      // Example:  button_number = 5
-      //           game_length = 15
-      // Max game_length = 20
+      int game_length = 10 + selected_difficulty; //defult game length is 11 rounds
 
     // Random Number Generator for Pattern Array
     int pattern[20]; //Array of 20 random numbers between 1:4
