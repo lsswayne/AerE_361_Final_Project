@@ -1,18 +1,43 @@
 #include <Adafruit_CircuitPlayground.h>
 
 uint8_t pixeln = -1;
+bool slideSwitch;
+int selected_difficulty = 1;
+
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
   randomSeed(analogRead(2));
-
   CircuitPlayground.begin();
 }
 
 void loop() {
   while (1==1){ //Continuous loop that checks for the beginning of a game
-  
-  if (CircuitPlayground.leftButton()&&CircuitPlayground.rightButton()){ //Indicating the beginning of a game
+      slideSwitch = CircuitPlayground.slideSwitch();
+
+  if (CircuitPlayground.slideSwitch() == 1)
+    CircuitPlayground.setPixelColor((selected_difficulty-1),(0+selected_difficulty*25),(255-selected_difficulty*25),0);
+    while(CircuitPlayground.slideSwitch() == 1) 
+    {
+      if (CircuitPlayground.rightButton() && selected_difficulty < 10)
+    {
+      ++selected_difficulty;
+      CircuitPlayground.clearPixels();
+      CircuitPlayground.setPixelColor((selected_difficulty-1),(0+selected_difficulty*25),(255-selected_difficulty*25),0);
+      delay(200);
+    }
+
+    else if (CircuitPlayground.leftButton() && selected_difficulty > 1)
+    {
+      --selected_difficulty;
+      CircuitPlayground.clearPixels();
+      CircuitPlayground.setPixelColor((selected_difficulty-1),(0+selected_difficulty*25),(255-selected_difficulty*25),0);
+      delay(200);
+    }
+  }
+    
+  CircuitPlayground.clearPixels();
+  if (CircuitPlayground.leftButton()&&CircuitPlayground.rightButton() && slideSwitch == 0){ //Indicating the beginning of a game
     CircuitPlayground.setPixelColor(0,CircuitPlayground.colorWheel(85));
     CircuitPlayground.setPixelColor(1,CircuitPlayground.colorWheel(85));
     CircuitPlayground.setPixelColor(2,CircuitPlayground.colorWheel(85));
