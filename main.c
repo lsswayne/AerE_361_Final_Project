@@ -72,6 +72,7 @@ void loop() {
     
     //Set Difficulty
       int game_length = 10 + selected_difficulty; //defult game length is 11 rounds
+      max_dispaly_time = max_display_time - (200.0) * (((float)selected_difficulty - 1.0) / 9.0);
 
     // Random Number Generator for Pattern Array
     int pattern[20]; //Array of 20 random numbers between 1:4
@@ -91,7 +92,7 @@ void loop() {
       while((display_count < round_input) && round_input <= game_length) //Loop to display the pattern to the user
       {
         // Set Display Time Based on Game Length
-        display_time = min_display_time + (max_display_time - min_display_time)*(((double)game_length - (double)round_input)/((double)game_length - 1.0)); //Decrease display_time based on the round number
+        display_time = min_display_time + (max_display_time - min_display_time)*(((float)game_length - (float)round_input)/((float)game_length - 1.0)); //Decrease display_time based on the round number
         
         if(pattern[display_count] == 1) //Quadrant 1: Green
         {
