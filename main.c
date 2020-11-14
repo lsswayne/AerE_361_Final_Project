@@ -42,11 +42,11 @@ void loop() {
       int win_condition = 0;
       //Time Variables
       int display_time = 500;  //Default display time is 500 milliseconds
-      int max_display_time = 500; //Maximum time the color of the pattern will be displayed.  Also is the length of the break afterwards
+      int max_display_time = 1000; //Maximum time the color of the pattern will be displayed.  Also is the length of the break afterwards
       int min_display_time = 250; //Minimum time the color of the pattern will be displayed.  Also is the length of the break afterwards
     
     //Set Difficulty
-      int game_length = 10; //defult game length is 10 rounds
+      int game_length = 5; //defult game length is 10 rounds
     //Loop for determining difficulty level
       // game_length = game_length + button_number;
       // Example:  button_number = 0
@@ -58,7 +58,7 @@ void loop() {
     // Random Number Generator for Pattern Array
     int pattern[20]; //Array of 20 random numbers between 1:4
 
-    for (int i = 0; i < 10; i++){
+    for (int i = 0; i < game_length; i++){
       //pattern[i] = 1; //for testing purposes
      pattern[i] = random(1,5); //Fill pattern array with random numbers 1:4 upper bound is exclusive
     }
