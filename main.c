@@ -122,7 +122,7 @@ void loop() {
         CircuitPlayground.setPixelColor(0,CircuitPlayground.colorWheel(85));
         CircuitPlayground.setPixelColor(1,CircuitPlayground.colorWheel(85));
         CircuitPlayground.setPixelColor(2,CircuitPlayground.colorWheel(85));
-        CircuitPlayground.playTone(196, 500); //G4
+        CircuitPlayground.playTone(196, display_time); //G4
         CircuitPlayground.clearPixels();
         input_vect[input_count] = 1;
         time_to_check = 1;
@@ -133,7 +133,7 @@ void loop() {
         CircuitPlayground.setPixelColor(2,255,255,0);
         CircuitPlayground.setPixelColor(3,255,255,0);
         CircuitPlayground.setPixelColor(4,255,255,0);
-        CircuitPlayground.playTone(277, 500); //C#4
+        CircuitPlayground.playTone(277, display_time); //C#4
         CircuitPlayground.clearPixels();
         input_vect[input_count] = 2;
         time_to_check = 1;
@@ -144,7 +144,7 @@ void loop() {
         CircuitPlayground.setPixelColor(5,CircuitPlayground.colorWheel(170));
         CircuitPlayground.setPixelColor(6,CircuitPlayground.colorWheel(170));
         CircuitPlayground.setPixelColor(7,CircuitPlayground.colorWheel(170));
-        CircuitPlayground.playTone(330, 500); //E4
+        CircuitPlayground.playTone(330, display_time); //E4
         CircuitPlayground.clearPixels();
         input_vect[input_count] = 3;
         time_to_check = 1;
@@ -155,7 +155,7 @@ void loop() {
         CircuitPlayground.setPixelColor(7,CircuitPlayground.colorWheel(0));
         CircuitPlayground.setPixelColor(8,CircuitPlayground.colorWheel(0));
         CircuitPlayground.setPixelColor(9,CircuitPlayground.colorWheel(0));
-        CircuitPlayground.playTone(220, 500); //A3
+        CircuitPlayground.playTone(220, display_time); //A3
         CircuitPlayground.clearPixels();
         input_vect[input_count] = 4;
         time_to_check = 1;
