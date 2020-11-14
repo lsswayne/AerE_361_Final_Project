@@ -41,9 +41,9 @@ void loop() {
       int end_game = 0;
       int win_condition = 0;
       //Time Variables
-      int display_time = 500;  //Default display time is 500 milliseconds
-      int max_display_time = 1000; //Maximum time the color of the pattern will be displayed.  Also is the length of the break afterwards
-      int min_display_time = 250; //Minimum time the color of the pattern will be displayed.  Also is the length of the break afterwards
+      float display_time = 500;  //Default display time is 500 milliseconds
+      float max_display_time = 1000; //Maximum time the color of the pattern will be displayed.  Also is the length of the break afterwards
+      float min_display_time = 250; //Minimum time the color of the pattern will be displayed.  Also is the length of the break afterwards
     
     //Set Difficulty
       int game_length = 5; //defult game length is 10 rounds
