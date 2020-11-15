@@ -58,27 +58,26 @@ void loop() {
     CircuitPlayground.clearPixels();
     
     //Defining Variables
-      int input_count = 0;
-      int display_count = 0;
-      int round_input = 1;
-      int time_to_check = 0;
-      int input_vect[20];
-      int end_game = 0;
-      int win_condition = 0;
-      //Time Variables
-      float display_time = 500;  //Default display time is 500 milliseconds
+      int input_count = 0;      //Variable that tracks inputs within a round
+      int display_count = 0;    //Counter that indicates which index in the patter to display to the user
+      int round_input = 1;      //Counter that indicates the current round
+      int time_to_check = 0;    //Indicator that allows a user input to be checked with the correct pattern
+      int input_vect[20];       //Initializing the vector that the user input is saved to
+      int end_game = 0;         //Variable that is set to 1 when it is the end of the game
+      int win_condition = 0;    //Variable that is set to 1 if you win the game
+    //Time Variables
+      float display_time = 500;     //Default display time is 500 milliseconds
       float max_display_time = 500; //Maximum time the color of the pattern will be displayed.  Also is the length of the break afterwards
       float min_display_time = 100; //Minimum time the color of the pattern will be displayed.  Also is the length of the break afterwards
     
     //Set Difficulty
-      int game_length = 10 + selected_difficulty; //defult game length is 11 rounds
+      int game_length = 9 + selected_difficulty; //defult game length is 10 rounds
       max_display_time = max_display_time - (200.0) * (((float)selected_difficulty - 1.0) / 9.0);
 
     // Random Number Generator for Pattern Array
     int pattern[20]; //Array of 20 random numbers between 1:4
 
     for (int i = 0; i < game_length; i++){
-      //pattern[i] = 1; //for testing purposes
      pattern[i] = random(1,5); //Fill pattern array with random numbers 1:4 upper bound is exclusive
     }
 
@@ -267,7 +266,7 @@ void loop() {
       //All inputs are correct: increase round
       round_input = round_input + 1;
       
-      if (round_input-1 == game_length) //User successfully passed 10 rounds, indicate win by setting win_condition to 1
+      if (round_input-1 == game_length) //User successfully passed all rounds, indicate win by setting win_condition to 1
       {
         win_condition = 1;
       }
