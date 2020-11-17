@@ -263,8 +263,11 @@ void loop() {
         }
         
       }
-      //All inputs are correct: increase round
-      round_input = round_input + 1;
+      //All inputs are correct and it is not the end of the game: increase round
+      if(end_game == 0)
+      {
+        round_input = round_input + 1;
+      }
       
       if (round_input-1 == game_length) //User successfully passed all rounds, indicate win by setting win_condition to 1
       {
